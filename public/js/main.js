@@ -116,7 +116,7 @@ function outputMessage(message){
   const div=document.createElement('div')
   div.classList.add('message')
   div.innerHTML=`
-    <p class="meta">Omjee <span>9:12pm</span></p>
+    <p class="meta">Omjee <span>${new Date().getHours()}:${new Date().getMinutes()}</span></p>
     <p class="text">
     ${message}
     </p>
