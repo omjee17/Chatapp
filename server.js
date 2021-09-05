@@ -3,6 +3,7 @@ const path=require('path')
 const http=require('http')
 const socketio=require('socket.io')
 const formatMesaage=require('./utils/messages')
+const {userJoin,getCurrentUser,userLeave,getRoomUsers}=require('./utils/users')
 
 const app=express()
 const port=3000
@@ -18,26 +19,42 @@ app.use("/",express.static(path.join(__dirname,'public')))
 // Run when client connects
 io.on('connection',(socket)=>{
 
-    // Welcome current user
+    socket.on('joinRoom',({username,room})=>{
+        const user=userJoin(socket.id,username,room)
+
+        socket.join(user.room)
+        
+        // Welcome current user
     socket.emit('message',formatMesaage(BotName,'Welcome to ChatCord!!'))
 
     // Broadcast when a user connects
-    socket.broadcast.emit('message',formatMesaage(BotName,'A user has joined has the chat'))
-    // runs when client disconnect
-    socket.on('disconnect',()=>{
-        io.emit('message',formatMesaage(BotName,'A user has left the chat'))
-    })
+    socket.broadcast
+    .to(user.room)
+    .emit('message',
+    formatMesaage(BotName,`${user.username} has joined has the chat`)
+    )
+    
+})
+
+   
 
     // listen for chat message
     socket.on('chatMessage',(msg)=>{
-        io.emit('message',formatMesaage('USER',msg))
+        const user=getCurrentUser(socket.id)
+
+        io.to(user.room).emit('message',formatMesaage(user.username,msg))
     })
 
+    // runs when client disconnect
+    socket.on('disconnect',()=>{
+        const user=userLeave(socket.id)
+        
+        if(user){
+        io.to(user.room).emit('message',formatMesaage(BotName,`${user.username} has left the chat`))
+        }
+    })
 })
 
-app.get("/",(req,res)=>{
-    res.send("Hello World!!")
-})
 
 server.listen(port,()=>{
     console.log(`Server started at http://localhost:${port}`);   
