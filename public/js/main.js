@@ -18,7 +18,6 @@ console.log(username,room);
 socket.emit('joinRoom',{username,room})
 
 // get room and users
-
 socket.on('roomUsers',({room,users})=>{
   outputRoomName(room)
   outputUsers(users)
@@ -54,12 +53,22 @@ function outputMessage(message){
 
   const div=document.createElement('div')
   div.classList.add('message')
-  div.innerHTML=`
-    <p class="meta">${message.username} <span>${message.time}</span></p>
-    <p class="text">
-    ${message.text}
-    </p>
-  `
+  if(message.username==='Admin')
+  {
+    div.innerHTML=`
+      <p class="announcement">
+      ${message.text}
+      </p>
+    `
+  }
+  else{
+    div.innerHTML=`
+      <p class="meta">${message.username} <span>${message.time}</span></p>
+      <p class="text">
+      ${message.text}
+      </p>
+    `
+  }
 // appending message to chat window
   document.querySelector('.chat-messages').appendChild(div)
 }
