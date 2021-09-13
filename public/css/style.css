@@ -14,12 +14,37 @@
 	padding: 0;
 }
 
+
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	background: var(--light-color);
-	margin: 20px;
+	/* margin: 20px; */
+	overflow: hidden;
 }
+
+#navbar{
+	padding: 5px;
+	background:#667aff;
+}
+#navbar-logo{
+	display: inline-block;
+	width: 10%;
+}
+#navbar-logo img{
+	vertical-align: middle;
+	width: 100%;
+}
+#navbar-name{
+	display: inline-block;
+	vertical-align: middle;
+	width: 80%;
+	text-align: center;
+	color:#F3F4F6;
+	font-size: 22px;
+}
+
+
 
 ul {
 	list-style: none;
@@ -56,6 +81,7 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	flex-direction: row-reverse;
 }
 
 .chat-main {
@@ -182,6 +208,64 @@ a {
 .join-main .btn {
 	margin-top: 20px;
 	width: 100%;
+}
+
+.footer{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	background:#667aff;
+	padding: 5px;
+}
+.upper-footer{
+	display: flex;
+	color: #e6e9ff;
+	align-items: center;
+
+}
+.upper-footer .col p a{
+	text-decoration: underline;
+	color: #e6e9ff;
+}
+.upper-footer .col{
+	width: 100%;
+	font-size: 20px;
+	margin: 10px;
+	align-items: center;
+	text-align: center; 
+
+}
+.upper-footer .col textarea{
+	border-radius: 5px;
+	margin: 0 auto;
+	display: inline-block;
+	
+}
+
+.footer .col textarea{
+	display: block;
+}
+
+hr{
+	background:rgba(204, 198, 198,0.7);
+	margin: 0;
+	padding: 0;
+	border: 0px;
+	height: 3px;
+}
+.bottom-footer{
+	display:flex;
+	color: #e6e9ff;
+}
+.bottom-footer p{
+	margin: 10px;
+	font-size: 18px;
+	width: 100%;
+	vertical-align: middle;
+}
+.bottom-footer p:nth-child(2)
+{
+	text-align: right;
 }
 
 @media (max-width: 700px) {

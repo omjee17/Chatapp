@@ -4,35 +4,33 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<link
-			rel="stylesheet"
+		<link rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
 			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
-			crossorigin="anonymous"
-		/>
+			crossorigin="anonymous"/>
+		
 		
 		<link rel="stylesheet" href="css/style.css" />
 		<title>Baatcheet App</title>
 	</head>
 	<body>
-		<div>
-			<div><img src="./images/undraw_quick_chat_re_bit5.svg"><h1>Baatcheet</h1></div>
+		
+		<div id="navbar">
+			<div id="navbar-logo">
+				<img src="./images/undraw_quick_chat_re_bit5.svg" height="80px" alt="navbarlogo">
+			</div>
+			<div id="navbar-name">
+				<h1>Baatcheet</h1>
+			</div>
 		</div>
+
+
 		<div class="join-container">
-			<header class="join-header">
-				<h1><i class="fas fa-smile"></i> Baatcheet</h1>
-			</header>
 			<main class="join-main">
 				<form action="chat.html">
 					<div class="form-control">
 						<label for="username">Username</label>
-						<input
-							type="text"
-							name="username"
-							id="username"
-							placeholder="Enter username..."
-							required
-						/>
+						<input type="text" name="username" id="username" placeholder="Enter username..." required/>
 					</div>
 					<div class="form-control">
 						<label for="room">Room</label>
@@ -49,5 +47,26 @@
 				</form>
 			</main>
 		</div>
+		<footer class="footer">
+			<div class="upper-footer">
+				<div class="col">
+					<p>Developed By <a href="https://omjeeresume.netlify.app/" target="_blank">Omjee</a></p>
+				</div>	
+				<div class="col">
+					Feedback
+					<textarea cols="40" rows="5"></textarea>
+				</div>
+			</div>
+			<hr>	
+			<div class="bottom-footer">
+				<p style="vertical-align: middle; align-items: center;">Made with ❤ in India <span><img src="./images/India.png" height="20px" style="vertical-align:middle;" ></span></p>
+         
+					<p>
+						No &copy; copyright issues.
+						<br>
+						Feel free to copy anything.If need help, ping Me!
+					</p>
+			</div>	
+		</footer>
 	</body>
 </html>
