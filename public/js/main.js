@@ -8,12 +8,11 @@ const userList=document.getElementById('users')
 const socket=io()
 
 // get username and room for url
-
 const {username,room}=Qs.parse(location.search,{
   ignoreQueryPrefix:true
 })
 
-console.log(username,room);
+// console.log(username,room);
 // Join chatroom
 socket.emit('joinRoom',{username,room})
 
@@ -47,6 +46,7 @@ chatForm.addEventListener('submit',(e)=>{
   e.target.elements.msg.value=''
   e.target.elements.msg.focus()
 })
+
 
 // Output message to DOM
 function outputMessage(message){

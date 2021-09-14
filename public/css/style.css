@@ -66,10 +66,11 @@ a {
 /* Chat Page */
 
 .chat-container {
-	max-width: 1100px;
+	max-width: 100%;
 	background: #fff;
-	margin: 30px auto;
+	margin: 30px ;
 	overflow: hidden;
+	height: 600px;
 }
 
 .chat-header {
@@ -90,6 +91,7 @@ a {
 }
 
 .chat-sidebar {
+	height: 445px;
 	background: var(--dark-color-b);
 	color: #fff;
 	padding: 20px 20px 60px;
@@ -113,7 +115,7 @@ a {
 
 .chat-messages {
 	padding: 30px;
-	max-height: 500px;
+	max-height: 445px;
 	overflow-y: scroll;
 	
 }
@@ -139,6 +141,7 @@ a {
 }
 
 .chat-messages .message .meta span {
+	
 	color: #777;
 }
 
@@ -152,14 +155,27 @@ a {
 }
 
 .chat-form-container input[type='text'] {
+	
 	font-size: 16px;
 	padding: 5px;
 	height: 40px;
 	flex: 1;
 }
+.messageBox{
+	height: 54px !important;
+	background-color: white !important;
+	vertical-align:middle;
+}
+.chat-form-container .btn{
+	height: 54px;
+	margin-left: 2px;
+	border-radius: 5px;
+	vertical-align: middle;
+}
 
 /* Join Page */
 .join-container {
+	
 	max-width: 500px;
 	margin: 80px auto;
 	color: #fff;
