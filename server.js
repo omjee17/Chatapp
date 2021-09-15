@@ -34,7 +34,6 @@ io.on('connection',(socket)=>{
     formatMesaage(BotName,`${user.username} has joined has the chat`)
     )
 
-
     // Send user and room info
     io.to(user.room).emit('roomUsers',{
         room:user.room,

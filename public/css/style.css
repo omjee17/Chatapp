@@ -161,17 +161,7 @@ a {
 	height: 40px;
 	flex: 1;
 }
-.messageBox{
-	height: 54px !important;
-	background-color: white !important;
-	vertical-align:middle;
-}
-.chat-form-container .btn{
-	height: 54px;
-	margin-left: 2px;
-	border-radius: 5px;
-	vertical-align: middle;
-}
+
 
 /* Join Page */
 .join-container {

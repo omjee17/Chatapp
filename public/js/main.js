@@ -12,7 +12,9 @@ const {username,room}=Qs.parse(location.search,{
   ignoreQueryPrefix:true
 })
 
-// console.log(username,room);
+// console.log(username,room)
+
+
 // Join chatroom
 socket.emit('joinRoom',{username,room})
 
@@ -31,7 +33,6 @@ socket.on('message',(message)=>{
 
 })
 
-
 // message submit
 chatForm.addEventListener('submit',(e)=>{
   e.preventDefault()
@@ -45,7 +46,9 @@ chatForm.addEventListener('submit',(e)=>{
   // clear input
   e.target.elements.msg.value=''
   e.target.elements.msg.focus()
+
 })
+
 
 
 // Output message to DOM
@@ -85,3 +88,30 @@ function outputUsers(users) {
     ${users.map(user=>`<li>${user.username}</li>`).join('')}
   `
 }
+
+
+// Emoji
+
+
+
+
+let emojiBtn=document.getElementById("emojiBtn")
+emojiBtn.addEventListener('click',()=>{
+
+ 
+  return fetch('https://emoji-api.com/emojis?access_key=93c8c9d5c0479d43d685b63f359c3df36fcaa60e')
+  .then((data)=>{
+    return data.json()
+  })
+  .then((res)=>{
+    for(let i=0;i<res.length;i++)
+    {
+      chatMessages.append(res[i].character)
+    }
+    console.log(res)
+  })
+  .catch((err)=>{
+    console.error(err)
+  })
+  
+})
