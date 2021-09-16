@@ -1,5 +1,3 @@
-
-
 const chatForm=document.getElementById('chat-form')
 const chatMessages=document.querySelector('.chat-messages')
 const roomName=document.getElementById('room-name')
@@ -7,10 +5,12 @@ const userList=document.getElementById('users')
 let emojiBox=document.getElementById("emojiBox")
 let typedMessage=document.getElementById('msg')
 let sendBtn=document.getElementById('sendBtn')
+let apiKey=config.apiKey
+
 
 document.addEventListener('DOMContentLoaded',()=>{
 
-  return fetch('https://emoji-api.com/emojis?access_key=93c8c9d5c0479d43d685b63f359c3df36fcaa60e')
+  return fetch(`https://emoji-api.com/emojis?access_key=${apiKey}`)
   .then((data)=>{
     return data.json()
   })
