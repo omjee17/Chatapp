@@ -38,11 +38,19 @@ body {
 #navbar-name{
 	display: inline-block;
 	vertical-align: middle;
-	width: 80%;
+	width: 75%;
 	text-align: center;
 	color:#F3F4F6;
 	font-size: 22px;
 }
+.newRoomBtn{
+	cursor: pointer;
+	background: var(--light-color);
+	color: var(--dark-color-a);
+	padding:10px 15px;
+	font-size: 17px;
+}
+
 
 
 
@@ -62,6 +70,8 @@ a {
 	border: 0;
 	font-size: 17px;
 }
+
+
 
 /* Chat Page */
 
@@ -120,7 +130,7 @@ a {
 	
 }
 
-.chat-messages .message {
+.chat-messages .mesmainsage {
 	padding: 10px;
 	margin-bottom: 15px;
 	background-color: var(--light-color);
@@ -291,6 +301,40 @@ hr{
 .bottom-footer p:nth-child(2)
 {
 	text-align: right;
+}
+
+/* New Room */
+.container{
+	background-color:var(--dark-color-a);
+	width: 30%;
+	margin: 0 auto;
+	margin-top: 50px;
+	padding: 20px 30px;
+	
+}
+.container input{
+	width: 100%;
+	padding: 10px;
+	font-size: 17px;
+	border: 0px;
+}
+.container button{
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+#roomList{
+	margin: 0 auto;
+	margin-top: 10px;
+}
+#roomList li{
+	color: var(--light-color);
+	text-align: center;
+	font-size: 17px;
+	width: 50%;
+	margin: 0 auto;
+	padding: 5px;
+	margin-top: 5px;
 }
 
 @media (max-width: 700px) {
