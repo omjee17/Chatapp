@@ -91,7 +91,7 @@ a {
 }
 
 .chat-sidebar {
-	height: 445px;
+	height: 460px;
 	background: var(--dark-color-b);
 	color: #fff;
 	padding: 20px 20px 60px;
@@ -115,7 +115,7 @@ a {
 
 .chat-messages {
 	padding: 30px;
-	max-height: 445px;
+	max-height: 460px;
 	overflow-y: scroll;
 	
 }
@@ -161,7 +161,26 @@ a {
 	height: 40px;
 	flex: 1;
 }
-
+#emojiBox{
+	display:none;
+	position:absolute;
+	width: 30%;
+	float: right;
+	height: 300px;
+	bottom:175px;
+	left: 65%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	justify-content: space-between;
+	background-color: white;
+}
+#emojiBox button{
+	background-color: white;
+	border: 0px;
+	height: 30px;
+	width: 30px;
+	font-size: 22px;
+}
 
 /* Join Page */
 .join-container {

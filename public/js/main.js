@@ -4,6 +4,33 @@ const chatForm=document.getElementById('chat-form')
 const chatMessages=document.querySelector('.chat-messages')
 const roomName=document.getElementById('room-name')
 const userList=document.getElementById('users')
+let emojiBox=document.getElementById("emojiBox")
+let typedMessage=document.getElementById('msg')
+let sendBtn=document.getElementById('sendBtn')
+
+document.addEventListener('DOMContentLoaded',()=>{
+
+  return fetch('https://emoji-api.com/emojis?access_key=93c8c9d5c0479d43d685b63f359c3df36fcaa60e')
+  .then((data)=>{
+    return data.json()
+  })
+  .then((res)=>{
+    for(let i=0;i<res.length;i++)
+    {
+      let e=document.createElement('button')
+      e.innerText=res[i].character
+      e.addEventListener('click',()=>{
+        typedMessage.value+=(e.innerText)
+      })
+      emojiBox.append(e)
+    }
+
+  })
+  .catch((err)=>{
+    console.error(err)
+  })
+  
+})
 
 const socket=io()
 
@@ -36,18 +63,29 @@ socket.on('message',(message)=>{
 // message submit
 chatForm.addEventListener('submit',(e)=>{
   e.preventDefault()
-
   // get message text
   const msg=e.target.elements.msg.value
-
   // emit message to server
   socket.emit('chatMessage',msg)
-  
   // clear input
   e.target.elements.msg.value=''
   e.target.elements.msg.focus()
 
 })
+
+sendBtn.addEventListener('click',(e)=>{
+  
+  // get message
+  let msg=e.path[1][0].value
+  // emit message to server
+  socket.emit('chatMessage',msg)
+  // clear input
+  e.path[1][0].value=''
+  e.path[1][0].focus()
+
+})
+
+
 
 
 
@@ -92,26 +130,13 @@ function outputUsers(users) {
 
 // Emoji
 
-
-
-
 let emojiBtn=document.getElementById("emojiBtn")
 emojiBtn.addEventListener('click',()=>{
 
- 
-  return fetch('https://emoji-api.com/emojis?access_key=93c8c9d5c0479d43d685b63f359c3df36fcaa60e')
-  .then((data)=>{
-    return data.json()
-  })
-  .then((res)=>{
-    for(let i=0;i<res.length;i++)
-    {
-      chatMessages.append(res[i].character)
-    }
-    console.log(res)
-  })
-  .catch((err)=>{
-    console.error(err)
-  })
-  
+  if(emojiBox.style.display=='none')
+  emojiBox.style.display='block'
+  else 
+  emojiBox.style.display='none'
 })
+
+
