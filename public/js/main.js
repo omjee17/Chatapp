@@ -8,6 +8,7 @@ let sendBtn=document.getElementById('sendBtn')
 let apiKey=config.apiKey
 
 
+
 document.addEventListener('DOMContentLoaded',()=>{
 
   return fetch(`https://emoji-api.com/emojis?access_key=${apiKey}`)

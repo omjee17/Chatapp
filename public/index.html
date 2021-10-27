@@ -11,6 +11,8 @@
 		
 		
 		<link rel="stylesheet" href="css/style.css" />
+		<script src="./js/config.js"></script>
+		<script async defer src="./js/script.js"></script>
 		<title>Baatcheet App</title>
 	</head>
 	<body>
@@ -23,7 +25,7 @@
 				<h1>Baatcheet</h1>
 			</div>
 			
-			<a href="https://omjeeresume.netlify.app" target="_blank" class="newRoomBtn">Create New Room</a>
+			<a href="./newRoom.html" target="_blank" class="newRoomBtn" id="navigateToNewRoomPage">Create New Room</a>
 		</div>
 
 
@@ -37,12 +39,7 @@
 					<div class="form-control">
 						<label for="room">Room</label>
 						<select name="room" id="room">
-							<option value="JavaScript">JavaScript</option>
-							<option value="Python">Python</option>
-							<option value="PHP">PHP</option>
-							<option value="C++">C++</option>
-							<option value="Ruby">Ruby</option>
-							<option value="Java">Java</option>
+							
 						</select>
 					</div>
 					<button type="submit" class="btn">Join Chat</button>	
@@ -71,4 +68,5 @@
 			</div>	
 		</footer>
 	</body>
+
 </html>

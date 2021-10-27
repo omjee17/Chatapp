@@ -12,10 +12,16 @@ const server=http.createServer(app)
 const io=socketio(server)
 const BotName="Admin"
 
+
+
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+
 // set static fodler
 app.use("/",express.static(path.join(__dirname,'public')))
+app.use("/api",require('./routes/room'))
+
+
 
 // Run when client connects
 io.on('connection',(socket)=>{
