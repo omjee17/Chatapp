@@ -1,11 +1,24 @@
-let room=config.room
-
+let room
 let roomList=document.getElementById("room")
 
-for(let i=0;i<room.length;i++)
-{
-    let e=document.createElement("option")
-    e.value=room[i]
-    e.innerText=room[i]
-    roomList.append(e)
-}
+
+// getting data from database i.e list of rooms
+fetch('http://localhost:3000/api')
+.then((data)=>{
+  return data.json()
+})
+.then((data)=>{
+    // appending all the rooms in list
+    for(let i=0;i<data.length;i++)
+    {
+        let e=document.createElement("option")
+        e.value=data[i].name
+        e.innerText=data[i].name
+        roomList.append(e)
+    }
+    
+})
+.catch((err)=>{
+    console.error(err)
+})
+
